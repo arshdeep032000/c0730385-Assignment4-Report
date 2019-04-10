@@ -10,44 +10,30 @@ namespace c0730385
     class Program
     {
         ArrayList Beowulf;
+        int counterletters = 0;
+        int countSpaces = 0;
         static void Main(string[] args)
         {
-            Program p = new Program();
-            p.Beowulf = new ArrayList();
-            p.ReadTextFiles();
-
-            Console.ReadLine();
-
+            Program a = new Program();
+            a.Beowulf = new ArrayList();
+            a.ReadTextFiles();
         }
+
         public void Run() { this.ReadTextFiles(); }
         public void ReadTextFiles()
         {
-            using (StreamReader file = new StreamReader("U:/Users/730385/Downloads/Beowulf.txt"))
+
+            using (StreamReader sr = new StreamReader("U:/Users/725866/beowulf.txt"))
             {
+                string line;
                 int counter = 0;
-                string ln;
-                while ((ln = file.ReadLine()) != null)
+                int a = 0, myWord = 1;
+
+                while ((line = sr.ReadLine()) != null)
                 {
-                    Console.WriteLine(ln);
-                    Beowulf.Add(ln);
-                }
-                file.Close();
-                
-                counter = File.ReadLines("U:\\Users\\730385\\Downloads\\Beowulf.txt").Count();
-
-
-
-
-
-
-
-
-                Console.WriteLine("essay consist of lines: " + counter);
-
-
-            }
-        }
-        public int FindNumberofBlankSpaces(string line)
+                    Console.WriteLine(line);
+                    Beowulf.Add(line);
+                    public int FindNumberofBlankSpaces(string line)
         {
             int countletters = 0;
             int countSpaces = 0;
