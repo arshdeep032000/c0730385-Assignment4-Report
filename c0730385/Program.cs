@@ -31,6 +31,7 @@ namespace c0730385
                 int a = 0, myWord = 1;
                 int averageLetterPerWord;
                 ArrayList lineNumbers = new ArrayList();
+                ArrayList lineNumbers2 = new ArrayList();
                 int linenum = 1;
                 lineNumbers.Add(22);
 
@@ -47,35 +48,50 @@ namespace c0730385
                         lineNumbers.Add(linenum);
                     }
                     linenum++;
-                    //section b
 
-                    while (a <= line.Length - 1)
+                    if (line.Substring(0).Contains("fare") || line.Substring(0).Contains("Fare"))
                     {
-                        if (line[a] == ' ' || line[a] == '\n' || line[a] == '\t')
+                        if (!(line.Substring(0).Contains("war") || line.Substring(0).Contains("War")))
                         {
-                            myWord++;
+                            lineNumbers2.Add(linenum);
                         }
-                        a++;
+
+                        //section b
+                        while (a <= line.Length - 1)
+                        {
+                            if (line[a] == ' ' || line[a] == '\n' || line[a] == '\t')
+                            {
+                                myWord++;
+                            }
+                            a++;
+                        }
+                        a = 0;
+
+
+
                     }
-                    a = 0;
+                    averageLetterPerWord = counterletters / countSpaces;
 
-                    
+                    Console.WriteLine("essay count of lines" + counter);
+                    Console.WriteLine("essay count of words " + myWord);
+                    Console.WriteLine("The number of average letters per word is  " + averageLetterPerWord);
 
+
+                    //section c
+                    Console.WriteLine("The line which contains both sea and fare");
+                    foreach (int i in lineNumbers)
+                    {
+                        Console.Write(i + " ");
+                    }
+
+                    Console.WriteLine("The line which contains Fare, but not War");
+                    foreach (int i in lineNumbers2)
+                    {
+                        Console.Write(i + " ");
+                    }
+                    Console.ReadLine();
                 }
-                averageLetterPerWord = counterletters / countSpaces;
-
-                Console.WriteLine("essay count of lines" + counter);
-                Console.WriteLine("essay count of words " + myWord);
-                Console.WriteLine("The number of average letters per word is  " + averageLetterPerWord);
-
-
-                //section c
-                Console.WriteLine("The line which contains both sea and fare");
-                foreach (int i in lineNumbers)
-                {
-                    Console.Write(i + " ");
-                }
-                Console.ReadLine();            }
+            }
         }
         public int FindNumberOfBlankSpaces(string line)
         {
