@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,11 +19,12 @@ namespace c0730385
             a.ReadTextFiles();
         }
 
+  
         public void Run() { this.ReadTextFiles(); }
         public void ReadTextFiles()
         {
 
-            using (StreamReader sr = new StreamReader("U:/Users/725866/beowulf.txt"))
+            using (StreamReader sr = new StreamReader("U:\\Users\\730385\\Downloads\\Beowulf.txt"))
             {
                 string line;
                 int counter = 0;
@@ -33,16 +34,37 @@ namespace c0730385
                 {
                     Console.WriteLine(line);
                     Beowulf.Add(line);
-                    public int FindNumberofBlankSpaces(string line)
-        {
-            int countletters = 0;
-            int countSpaces = 0;
-            foreach (char c in line)
-                {
-                if(char.IsLetter(c)) { countletters++; }
-                if (char.IsWhiteSpace(c)) { countSpaces ++; }
+                    FindNumberOfBlankSpaces(line);
+                    counter++;
+
+                    while (a <= line.Length - 1)
+                    {
+                        if (line[a] == ' ' || line[a] == '\n' || line[a] == '\t')
+                        {
+                            myWord++;
+                        }
+                        a++;
+                    }
+                    a = 0;
+
+                }
+
+
+                Console.WriteLine("essay count of lines" + counter);
+                Console.WriteLine("essay count of words " + myWord);
+                Console.ReadLine();
             }
-            
+
+        }
+        public int FindNumberOfBlankSpaces(string line)
+        {
+
+
+            foreach (char c in line)
+            {
+                if (char.IsLetter(c)) { counterletters++; }
+                if (char.IsWhiteSpace(c)) { countSpaces++; }
+            }
             return countSpaces;
         }
     }
