@@ -29,6 +29,7 @@ namespace c0730385
                 string line;
                 int counter = 0;
                 int a = 0, myWord = 1;
+                int averageLetterPerWord;
                 ArrayList lineNumbers = new ArrayList();
                 int linenum = 1;
                 lineNumbers.Add(22);
@@ -40,7 +41,7 @@ namespace c0730385
                     FindNumberOfBlankSpaces(line);
                     counter++;
 
-
+                    //section c
                     if (line.Substring(0).Contains("Sea") || line.Substring(0).Contains("sea") && line.Substring(0).Contains("Fare") || line.Substring(0).Contains("fare"))
                     {
                         lineNumbers.Add(linenum);
@@ -61,13 +62,14 @@ namespace c0730385
                     
 
                 }
-
+                averageLetterPerWord = counterletters / countSpaces;
 
                 Console.WriteLine("essay count of lines" + counter);
                 Console.WriteLine("essay count of words " + myWord);
+                Console.WriteLine("The number of average letters per word is  " + averageLetterPerWord);
 
 
-
+                //section c
                 Console.WriteLine("The line which contains both sea and fare");
                 foreach (int i in lineNumbers)
                 {
