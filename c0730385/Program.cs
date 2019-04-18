@@ -19,7 +19,7 @@ namespace c0730385
             a.ReadTextFiles();
         }
 
-  
+
         public void Run() { this.ReadTextFiles(); }
         public void ReadTextFiles()
         {
@@ -29,6 +29,9 @@ namespace c0730385
                 string line;
                 int counter = 0;
                 int a = 0, myWord = 1;
+                ArrayList lineNumbers = new ArrayList();
+                int linenum = 1;
+                lineNumbers.Add(22);
 
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -36,6 +39,14 @@ namespace c0730385
                     Beowulf.Add(line);
                     FindNumberOfBlankSpaces(line);
                     counter++;
+
+
+                    if (line.Substring(0).Contains("Sea") || line.Substring(0).Contains("sea") && line.Substring(0).Contains("Fare") || line.Substring(0).Contains("fare"))
+                    {
+                        lineNumbers.Add(linenum);
+                    }
+                    linenum++;
+                    //section b
 
                     while (a <= line.Length - 1)
                     {
@@ -47,14 +58,22 @@ namespace c0730385
                     }
                     a = 0;
 
+                    
+
                 }
 
 
                 Console.WriteLine("essay count of lines" + counter);
                 Console.WriteLine("essay count of words " + myWord);
-                Console.ReadLine();
-            }
 
+
+
+                Console.WriteLine("The line which contains both sea and fare");
+                foreach (int i in lineNumbers)
+                {
+                    Console.Write(i + " ");
+                }
+                Console.ReadLine();            }
         }
         public int FindNumberOfBlankSpaces(string line)
         {
